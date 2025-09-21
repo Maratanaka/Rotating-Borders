@@ -1,8 +1,10 @@
+/* Alapok maradnak */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 nav {
   font-family: "Poppins", sans-serif;
   display: flex;
@@ -11,36 +13,44 @@ nav {
   background-color: #000000;
   padding: 1em;
 }
+
 nav a {
   text-decoration: none;
   text-transform: capitalize;
   color: #ffffff;
 }
+
 #logo {
   font-size: 1.2em;
   font-weight: 600;
 }
+
 input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
+  display: none;
 }
+
 label {
   display: none;
   cursor: pointer;
+  font-size: 1.5em;
+  color: #ffffff;
 }
+
 ul {
   list-style: none;
   display: flex;
   gap: 1em;
 }
+
 ul a {
   padding: 0.5em;
 }
+
 .active {
   border-bottom: 2px solid #ffffff;
 }
 
-/* Body maradhat normál módon, a navbar fent lesz */
+/* Body */
 body {
   background-color: #ffffff;
   margin: 0;
@@ -48,7 +58,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* Loader középre helyezése fix pozícióval */
+/* Loader */
 .loader {
   position: fixed;
   top: 50%;
@@ -57,7 +67,6 @@ body {
   width: 200px;
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
-  /* kezdő pozíció + animáció transform kombinálva */
   transform: translate(-50%, -50%) rotate(0deg);
 }
 
@@ -67,8 +76,6 @@ body {
   }
 }
 
-
-/* Loader span-ok, animáció marad */
 .loader span {
   position: absolute;
   width: 100%;
@@ -91,4 +98,34 @@ body {
   bottom: 5px;
   background-color: #000000;
   border-radius: 50%;
+}
+
+/* --- Reszponzív stílusok --- */
+@media screen and (max-width: 768px) {
+  label {
+    display: block;
+  }
+
+  ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  ul li {
+    width: 100%;
+    text-align: center;
+    margin: 0.5em 0;
+  }
+
+  input[type="checkbox"]:checked ~ ul {
+    max-height: 500px; /* tetszőleges érték, elég magas a menühöz */
+  }
 }
