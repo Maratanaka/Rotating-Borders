@@ -56,25 +56,33 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  min-height: 500vh;
 }
 
 /* Loader */
-.loader {
+/* Wrapper a scroll skálázáshoz */
+.loader-wrapper {
   position: fixed;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.2s ease-out;
+  z-index: 1000;
+}
+
+/* Eredeti loader animáció */
+.loader {
+  position: relative;
   height: 200px;
   width: 200px;
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
-  transform: translate(-50%, -50%) rotate(0deg);
 }
 
 @keyframes spin {
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+  100% { transform: rotate(360deg); }
 }
+
 
 .loader span {
   position: absolute;
