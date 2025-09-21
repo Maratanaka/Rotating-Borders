@@ -51,23 +51,25 @@ ul a {
 }
 
 /* Body */
-body {
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-  min-height: 1000vh;
+:root {
+  --loader-scale: 1;
+  --bg-opacity: 0;
 }
 
-/* Loader */
-/* Wrapper a scroll skálázáshoz */
+body {
+  margin: 0;
+  min-height: 300vh;
+  background-color: rgba(0,0,0,var(--bg-opacity));
+  transition: background-color 0.1s linear;
+}
+
 .loader-wrapper {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.2s ease-out;
+  transform: translate(-50%, -50%) scale(var(--loader-scale));
   z-index: 1000;
+  transition: transform 0.1s linear;
 }
 
 /* Eredeti loader animáció */
